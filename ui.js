@@ -1,8 +1,8 @@
 class UI {
   constructor() {
-    this.profile = document.getElementById('profile');
+    this.profile = document.getElementById("profile");
   }
-
+  // Display profile
   showProfile(user) {
     this.profile.innerHTML = `
       <div class="card card-body mb-3">
@@ -29,5 +29,39 @@ class UI {
       <h3 class="page-heading mb-3">Latest Repos</h3>
       <div id="repos"></div>
     `;
+  }
+  // Clear profile
+  clearProfile() {
+    this.profile.innerHTML = "";
+  }
+  // Show alert
+  showAlert(message, className) {
+    // Clear more than one alert
+    this.clearAlert();
+    // Create div
+    const div = document.createElement("div");
+    // Add classname
+    div.className = className;
+    // Add text
+    div.appendChild(document.createTextNode(message));
+    // get parent
+    const container = document.querySelector(".searchContainer");
+    // Get search box
+    const search = document.querySelector(".search");
+    // Insert alert
+    container.insertBefore(div, search);
+    // Clear alert after three seconds
+    setTimeout(() => {
+      this.clearAlert();
+    }, 3000);
+  }
+
+  // Clear alert message
+  clearAlert() {
+    const currentAlert = document.querySelector(".alert");
+
+    if (currentAlert) {
+      currentAlert.remove();
+    }
   }
 }
