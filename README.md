@@ -16,3 +16,5 @@ Company
 Website/Blog
 
 Date joined
+
+Live @ https://velvety-licorice-a21a26.netlify.app/
